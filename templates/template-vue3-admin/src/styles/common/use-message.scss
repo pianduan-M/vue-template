@@ -1,0 +1,24 @@
+.pd-use-modal {
+  font-size: 14px;
+
+  .el-icon {
+    vertical-align: -0.15em;
+    margin-right: 0.5em;
+  }
+
+  &.pd-success-modal {
+    color: $--color-success;
+  }
+  
+  &.pd-error-modal {
+    color: $--color-danger;
+  }
+
+  &.pd-warning-modal {
+    color: $--color-warning;
+  }
+
+  &.pd-info-modal {
+    color: #999;
+  }
+}

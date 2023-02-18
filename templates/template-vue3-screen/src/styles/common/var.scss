@@ -1,0 +1,51 @@
+// sidebar
+$menuText: #bfcbd9;
+$menuActiveText: #fff;
+$subMenuActiveText: #f4f4f5; //https://github.com/ElemeFE/element/issues/12951
+
+$menuBg: #1d4389;
+$menuHover: #263445;
+
+$subMenuBg: #1d4389;
+$subMenuHover: rgba(145, 188, 242, 0.22);
+
+$sideBarWidth: 220px;
+
+$--color-primary: #1d4389;
+$--color-success: #00a69b;
+$--color-warning: #ffbd4d;
+$--color-danger: #ff4866;
+
+$--color-text: #0f244d;
+
+:root {
+  --el-color-primary: #1d4389;
+  --el-color-success: #00a69b;
+  --el-color-danger: #ff4866;
+  --el-menu-item-height: 48px;
+}
+
+//.mt-1 => margin top
+//spacing
+$spacing-base-size: 1px;
+
+$spacing-types: (
+  m: margin,
+  p: padding,
+);
+
+$spacing-directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+);
+
+$spacing-sizes: (
+  0: 0,
+  5: 5,
+  10: 10,
+  20: 20,
+  30: 30,
+  24: 24,
+);

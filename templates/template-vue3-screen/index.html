@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
+    />
+    <title><%= title %></title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "fd012a7168acca72a6760c2e679f58d5",
+      };
+    </script>
+    <script
+      language="javascript"
+      src="https://webapi.amap.com/maps?v=1.4.15&key=279b334f610519c951658dcc79b250b0&plugin=AMap.MouseTool,AMap.PolyEditor,AMap.ControlBar,AMap.Geocoder"
+    ></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

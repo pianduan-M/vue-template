@@ -1,0 +1,173 @@
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-center {
+  @extend .flex;
+  @extend .items-center;
+  @extend .justify-center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// class:m-1 => margin：1em
+// class:mt-1 => margin-top：1em
+// m-0|mt-0|mx-0|my-0|p-0|pt-0|...
+
+@each $typekey, $type in $spacing-types {
+  //.m-1
+  @each $sizekey, $size in $spacing-sizes {
+    .#{$typekey}-#{$sizekey} {
+      #{$type}: $size * $spacing-base-size;
+    }
+  }
+
+  //.mx-1
+  @each $sizekey, $size in $spacing-sizes {
+    .#{$typekey}x-#{$sizekey} {
+      #{$type}-left: $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+
+    .#{$typekey}y-#{$sizekey} {
+      #{$type}-top: $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+  }
+
+  //.mt-1
+  @each $directionkey, $direction in $spacing-directions {
+    @each $sizekey, $size in $spacing-sizes {
+      .#{$typekey}#{$directionkey}-#{$sizekey} {
+        #{$type}-#{$direction}: $size * $spacing-base-size;
+      }
+    }
+  }
+
+  .#{$typekey} {
+    #{$type}: 0 !important;
+  }
+}
+
+.light-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 21px;
+}
+
+// 虚线
+.pd-dotted-line {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      var(--dotted-line-direction, to right),
+      var(--dotted-line-color, rgba(153, 153, 153, 0.26)) 50%,
+      transparent 50%
+    );
+    background-size: var(--dotted-line-width, 10px);
+  }
+}
+
+.pd-dotted-line-vertical {
+  --dotted-line-direction: to bottom;
+
+  &::after {
+    height: 100%;
+    width: auto;
+  }
+}
+
+// 实线
+.pd-solid-line {
+  border-bottom: 1px solid rgba(153, 153, 153, 0.26);
+}
+
+// color class
+.primary-color {
+  color: $--color-primary;
+}
+.success-color {
+  color: $--color-success;
+}
+.danger-color {
+  color: $--color-danger;
+}
+
+.pd-text-bold {
+  font-weight: 500;
+}
+
+.pd-bold-title {
+  @extend .pd-text-bold;
+
+  font-size: 16px;
+  color: #333333;
+  line-height: 22px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  user-select: none;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "pd-cli 模版仓库",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "engines": {
+    "node": "^12 || >=14"
+  }
+}
