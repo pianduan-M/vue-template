@@ -7,8 +7,15 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DimensionGroup: typeof import('./src/components/pageContent/src/DimensionGroup.vue')['default']
     Editor: typeof import('./src/components/Tinymce/src/Editor.vue')['default']
+    FilterColumn: typeof import('./src/components/pageContent/src/FilterColumn.vue')['default']
+    Pagination: typeof import('./src/components/pageContent/src/Pagination.vue')['default']
+    PdForm: typeof import('./src/components/form/src/PdForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchForm: typeof import('./src/components/searchForm/src/SearchForm.vue')['default']
+    Src: typeof import('./src/components/pageContent/src/index.vue')['default']
+    TableHeadTips: typeof import('./src/components/table/src/TableHeadTips.vue')['default']
   }
 }
