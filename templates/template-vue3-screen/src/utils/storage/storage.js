@@ -12,7 +12,7 @@ class Storage {
 
   set(key, val, expire) {
     const stringData = JSON.stringify({
-      value,
+      val,
       time: Date.now(),
       expire: !isNullOrUndef(expire) ? new Date().getTime() + expire * 1000 : null,
     });

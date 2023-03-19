@@ -1,6 +1,6 @@
 <template>
   <!-- <router-view /> -->
-  <ScaleLayout />
+  <el-config-provider :locale="getElementPlusLocale"> <ScaleLayout /></el-config-provider>
 </template>
 
 <script>
@@ -9,7 +9,10 @@
   };
 </script>
 <script setup>
+  import { ElConfigProvider } from 'element-plus';
   import ScaleLayout from '@/layout/ScaleLayout.vue';
+  import { useLocale } from '/@/locales/useLocale';
+  const { getElementPlusLocale } = useLocale();
 </script>
 
 <style lang="scss">

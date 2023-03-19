@@ -1,4 +1,4 @@
-import { useLoginStore } from '@/store';
+import { useLoginStore } from '@/store/modules/login';
 
 export function resolveResError(code, message) {
   switch (code) {

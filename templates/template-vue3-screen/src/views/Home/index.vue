@@ -10,6 +10,16 @@
       </MapWrapper>
       <div class="right"></div>
     </div>
+    <el-button />
+    <el-date-picker />
+    <el-select @change="onChange">
+      <el-option
+        v-for="item in localeList"
+        :key="item.event"
+        :label="item.text"
+        :value="item.event"
+      />
+    </el-select>
   </div>
 </template>
 
@@ -23,6 +33,12 @@
 
   import { MapWrapper } from '@/components/MapWrapper';
   import { fetchAccountInfo } from '@/api/demo';
+  import { localeList } from '@/settings/localeSetting.js';
+  import { useLocale } from '@/locales/useLocale.js';
+  import { useLocaleStore } from '@/store/modules/locale.js';
+
+  const { changeLocale } = useLocale();
+  const localeStore = useLocaleStore();
 
   const userInfo = ref({});
 
@@ -36,6 +52,12 @@
   };
 
   getAccountInfo();
+
+  const onChange = (value) => {
+    console.log(value, 'vvvv');
+    const locale = changeLocale(value);
+    localeStore.setLocaleInfo(locale);
+  };
 </script>
 
 <style scoped lang="scss">

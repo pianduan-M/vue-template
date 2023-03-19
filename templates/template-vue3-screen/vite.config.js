@@ -1,8 +1,13 @@
+import { resolve } from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import { createVitePlugins } from './build/vite/plugin';
 import { convertEnv, getSrcPath, getRootPath } from './build/utils';
 import { viteDefine } from './build/config';
 import { createProxy } from './build/vite/proxy';
+
+function pathResolve(dir) {
+  return resolve(process.cwd(), '.', dir);
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -18,10 +23,26 @@ export default defineConfig(({ command, mode }) => {
   return {
     base: VITE_PUBLIC_PATH,
     resolve: {
-      alias: {
-        '@': srcPath,
-        '~': rootPath,
-      },
+      alias: [
+        {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+        },
+        // /@/xxxx => src/xxxx
+        {
+          find: /@\//,
+          replacement: pathResolve('src') + '/',
+        },
+        {
+          find: /\/@\//,
+          replacement: pathResolve('src') + '/',
+        },
+        // /#/xxxx => types/xxxx
+        {
+          find: /\/#\//,
+          replacement: pathResolve('types') + '/',
+        },
+      ],
     },
     define: viteDefine,
     plugins: createVitePlugins(viteEnv, isBuild),
