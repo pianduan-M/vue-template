@@ -1,6 +1,6 @@
 {
   "name": "template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "pd-cli 模版仓库",
   "main": "index.js",
   "scripts": {},
